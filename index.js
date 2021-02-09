@@ -38,5 +38,25 @@ function formHandler(e) {
 }
 
 function postFetch(title, date, main_act, category_id) {
-    console.log(title, date, main_act, category_id);
+    const bodyData = {title, date, main_act, category_id}
+    fetch(endPoint, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(bodyData)
+    })
+    .then(response => response.json())
+    .then(ticket => {
+        const ticketData = ticket.data
+        const ticketMarkup = `
+            <div data-id=${ticket.id}>
+                <h2>${ticket.attributes.title}</h2>
+                <h3>${ticket.attributes.date}</h3>
+                <h3>${ticket.attributes.main_act}</h3>
+                <p>${ticket.attributes.category.name}</p>
+                <button data-id=${ticket.id}>edit</button>
+            </div>
+            <br><br>`;
+            
+        document.querySelector("#ticket-container").innerHTML += ticketMarkup;
+    })
 }
