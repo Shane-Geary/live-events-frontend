@@ -2,6 +2,10 @@ const endPoint = "http://localhost:3000/api/v1/tickets";
 
 document.addEventListener('DOMContentLoaded', () => {
     getTickets()
+
+    const ticketForm = document.querySelector("#create-ticket-form")
+
+    ticketForm.addEventListener("submit", (e) => formHandler(e));
 })
 
 function getTickets() {
@@ -22,4 +26,17 @@ function getTickets() {
             document.querySelector('#ticket-container').innerHTML += ticketMarkup
         })
     }) 
-} 
+}
+
+function formHandler(e) {
+    e.preventDefault()
+    const titleInput = document.querySelector("#input-title").value 
+    const dateInput = document.querySelector("#input-date").value
+    const mainActInput = document.querySelector("#input-main-act").value
+    const categoryId = parseInt(document.querySelector("#categories").value)
+    postFetch(titleInput, dateInput, mainActInput, categoryId)
+}
+
+function postFetch(title, date, main_act, category_id) {
+    console.log(title, date, main_act, category_id);
+}

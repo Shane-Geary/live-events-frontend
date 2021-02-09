@@ -8,6 +8,38 @@
     <script type="application/javascript" src="index.js" charset="UTF-8"></script>
 </head>
 <body>
+
+    <div class="form-container">
+
+        <form id="create-ticket-form" style="">
+          <h3>Create a Ticket!</h3>
+  
+          <input id='input-title' type="text" name="title" value="" placeholder="Enter your ticket name..." 
+          class="input-text">
+          <br><br>
+          <input id='input-date' name="date" value="" placeholder="Enter the date..."></input>
+          <br><br>
+          <input id='input-main-act' type="text" name="main_act" value="" placeholder="Enter the main act..." 
+          class="input-text">
+          <br><br>
+  
+          <p>Choose A category: </p>
+          <select id="categories" name="categories">
+            <option value="1">Concert</option>
+            <option value="2">Sport Event</option>
+            <option value="3">Theatre</option>
+          </select>
+          <br><br>
+  
+          <input id= 'create-button' type="submit" name="submit" value="Create New Ticket" class="submit">
+  
+          <button type="button" class="btn btn-primary">Primary</button>
+  
+  
+        </form>
+  
+      </div>
+
     <div id="ticket-container">
 
     </div>
