@@ -13,7 +13,13 @@ function getTickets() {
     .then(response => response.json())
     .then(tickets => {
         tickets.data.forEach(ticket => {
-        const ticketMarkup = `
+        render(ticket)
+        })
+    }) 
+}
+
+function render(ticket) {
+    const ticketMarkup = `
             <div data-id=${ticket.id}>
                 <h2>${ticket.attributes.title}</h2>
                 <h3>${ticket.attributes.date}</h3>
@@ -24,8 +30,6 @@ function getTickets() {
             <br><br>`;
 
             document.querySelector('#ticket-container').innerHTML += ticketMarkup
-        })
-    }) 
 }
 
 function formHandler(e) {
@@ -46,17 +50,8 @@ function postFetch(title, date, main_act, category_id) {
     })
     .then(response => response.json())
     .then(ticket => {
+        console.log(ticket);
         const ticketData = ticket.data
-        const ticketMarkup = `
-            <div data-id=${ticket.id}>
-                <h2>${ticket.attributes.title}</h2>
-                <h3>${ticket.attributes.date}</h3>
-                <h3>${ticket.attributes.main_act}</h3>
-                <p>${ticket.attributes.category.name}</p>
-                <button data-id=${ticket.id}>edit</button>
-            </div>
-            <br><br>`;
-            
-        document.querySelector("#ticket-container").innerHTML += ticketMarkup;
+        render(ticketData)
     })
 }
