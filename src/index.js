@@ -4,15 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     getTickets()
 
     const ticketForm = document.querySelector("#create-ticket-form")
-    ticketForm.addEventListener("submit", (e) => formHandler(e));
 
-    const ticketContainer = document.querySelector("#ticket-container")
-    ticketContainer.addEventListener("click", e => {
-        const id = parseInt(e.target.dataset.id);
-        const ticket = Ticket.findById(id);
-        document.querySelector("#update-ticket").innerHTML = ticket.renderUpdateForm();
-    });
-    document.querySelector("#update-ticket").addEventListener("submit", e => updateForm(e))
+    ticketForm.addEventListener("submit", (e) => formHandler(e));
 })
 
 function getTickets() {
@@ -53,14 +46,3 @@ function postFetch(title, date, main_act, category_id) {
         document.querySelector('#ticket-container').innerHTML += newTicket.renderTicket()
     })
 }
-
-function updateForm(e) {
-    e.preventDefault();
-    const id = parseInt(e.target.dataset.id);
-    const ticket = Ticket.findById(id);
-    const title = e.target.querySelector('#input-title').value;
-    const date = e.target.querySelector('#input-date').value;
-    const main_act = e.target.querySelector('#main-act').value;
-    const category_id = parseInt(e.target.querySelector('#categories').value);
-    patchSyllabus(ticket, title, date, main_act, category_id)
-  }
