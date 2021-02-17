@@ -14,7 +14,6 @@ function getTickets() {
     .then(tickets => {
         tickets.data.forEach(ticket => {
             let newTicket = new Ticket(ticket, ticket.attributes)
-
             document.querySelector('#ticket-container').innerHTML += newTicket.renderTicket()
             // debugger
         })
