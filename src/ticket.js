@@ -7,6 +7,9 @@ class Ticket {
         this.category = ticketAttributes.category
         Ticket.all.push(this)
     }
+    //A constructor enables you to provide any custom initialization that must be done before 
+    //any other methods can be called on an instantiated object. If you don't provide your own 
+    //constructor, then a default constructor will be supplied for you.
 
     renderTicket() {
         // debugger 
@@ -20,9 +23,8 @@ class Ticket {
         <br><br>`;
     }
 
-    static findById(id) {
-        return this.all.find(ticket => ticket.id === id);
-    }
 }
 
 Ticket.all = [];
+
+ 

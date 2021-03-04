@@ -10,10 +10,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function getTickets() {
     fetch(endPoint)
+    //parse response to json 
     .then(response => response.json())
+    //iterate over the parsed data
     .then(tickets => {
+        //sort listed tickets alphabetically
+        tickets.data.sort(function(a, b) {
+            const ticketA = a.attributes.title;
+            const ticketB = b.attributes.title;
+            if (ticketA < ticketB) {
+                return -1;
+            }
+            if (ticketA > ticketB) {
+                return 1;
+            }
+                return 0;
+        });
         tickets.data.forEach(ticket => {
             let newTicket = new Ticket(ticket, ticket.attributes)
+            //select element where data should go to 
             document.querySelector('#ticket-container').innerHTML += newTicket.renderTicket()
             // debugger
         })
@@ -25,10 +40,12 @@ function formHandler(e) {
     const titleInput = document.querySelector("#input-title").value 
     const dateInput = document.querySelector("#input-date").value
     const mainActInput = document.querySelector("#input-main-act").value
+    //The parseInt() function parses a string and returns an integer
     const categoryId = parseInt(document.querySelector("#categories").value)
-    postFetch(titleInput, dateInput, mainActInput, categoryId)
+    postFetch(titleInput, dateInput, mainActInput, categoryId) 
 }
 
+//application/json headers option is the correct Content-Type for JSON encoded data
 function postFetch(title, date, main_act, category_id) {
     const bodyData = {title, date, main_act, category_id}
     fetch(endPoint, {
