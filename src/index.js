@@ -18,12 +18,15 @@ function getTickets() {
         tickets.data.sort(function(a, b) {
             const ticketA = a.attributes.title;
             const ticketB = b.attributes.title;
+            //a is less than b by some ordering criterion
             if (ticketA < ticketB) {
                 return -1;
             }
+            //a is greater than b by the ordering criterion
             if (ticketA > ticketB) {
                 return 1;
             }
+            //a must be equal to b
                 return 0;
         });
         tickets.data.forEach(ticket => {
