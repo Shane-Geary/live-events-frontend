@@ -3,6 +3,8 @@ A JavaScript SPA with a Rails API on the back end. Lets users create and read lo
 The application includes the functionality of creating new ticket objects with a form on the same page where the newly created ticket will be displayed, 
 as well as a drop down bar for options in the form.
 
+<img width="1280" alt="Screen Shot 2021-07-16 at 10 03 40 AM" src="https://user-images.githubusercontent.com/59372986/125979195-658becbc-3312-4771-875e-324b75455319.png">
+
 Explore: | [Demo:] (https://www.youtube.com/watch?v=CLh15CuzXPw&t=1s) | [Blog:] (https://shaneg25.github.io/javascript_project-_live_events) |
 [Backend:] (https://github.com/ShaneG25/live_events_backend) 
 
