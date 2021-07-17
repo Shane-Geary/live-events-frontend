@@ -5,8 +5,17 @@ as well as a drop down bar for options in the form.
 
 <img width="1280" alt="Screen Shot 2021-07-16 at 10 03 40 AM" src="https://user-images.githubusercontent.com/59372986/125979195-658becbc-3312-4771-875e-324b75455319.png">
 
-Explore: | [Demo:] (https://www.youtube.com/watch?v=CLh15CuzXPw&t=1s) | [Blog:] (https://shaneg25.github.io/javascript_project-_live_events) |
+Explore: | [Blog:] (https://shaneg25.github.io/javascript_project-_live_events) |
 [Backend:] (https://github.com/ShaneG25/live_events_backend) 
+
+Demo:
+
+
+
+
+https://user-images.githubusercontent.com/59372986/126039900-4032965e-a77b-4b4b-ae8a-35dc1c5a563c.mp4
+
+
 
 Tech Stack
 
